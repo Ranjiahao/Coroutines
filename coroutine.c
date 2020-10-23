@@ -36,7 +36,7 @@ int coroutine_creat(schedule_t* s, void* (*call_back)(schedule_t*, void*), void*
             break;
         }
     }
-    if (i > s->max_id || c == NULL) {
+    if (i > s->max_id) {
         s->coroutines[i] = (coroutine_t*)malloc(sizeof(coroutine_t));
         s->max_id++;
     }

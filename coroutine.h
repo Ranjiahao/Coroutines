@@ -18,18 +18,18 @@ struct schedule;
 // 协程结构体
 typedef struct {
     void* (*call_back)(struct schedule*, void*); // 回调函数指针
-    void* args; // 回调函数参数
-    ucontext_t ctx; // 协程上下文
+    void* args;          // 回调函数参数
+    ucontext_t ctx;      // 协程上下文
     char stack[STACKSZ]; // 协程栈
-    enum State state; // 协程状态
+    enum State state;    // 协程状态
 } coroutine_t;
 
 // 协程调度器
 typedef struct schedule {
     coroutine_t** coroutines; // 所有协程
-    int current_id; // 当前运行的协程id
-    int max_id; // 最大下标
-    ucontext_t ctx_main; // 主流程上下文
+    int current_id;           // 当前运行的协程id
+    int max_id;               // 最大下标
+    ucontext_t ctx_main;      // 主流程上下文
 } schedule_t;
 
 // 创建协程调度器
