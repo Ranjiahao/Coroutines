@@ -16,7 +16,7 @@ enum State {
 struct schedule;
 
 // 协程结构体
-typedef struct {
+typedef struct coroutine {
     void* (*call_back)(struct schedule*, void*); // 回调函数指针
     void* args;          // 回调函数参数
     ucontext_t ctx;      // 协程上下文
